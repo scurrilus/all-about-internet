@@ -1,8 +1,8 @@
-all-about-internet
+SCURRILUS - One Page scroll
 ==================
 
-SCURRILUS - Repository for web development
+This is a little script for a one page scroll with snap function.
+Based on jquery.
 
-This is an project repository for some code tests.
-
-Check it out!!! 
+How to use?
+------------------
