@@ -1,34 +1,59 @@
+// Scroll Settings
+//Jquery Easing Plugin Methodes - http://api.jqueryui.com/easings/
+var scrollSpeed = 400;
+var scrollEasingDown = 'easeOutBack';
+var scrollEasingUp = 'easeOutBack';
+var duration = 50;
+
+/// END Settings
+
 count = null;
+windowH = null;
 function init() {
 	var sectionCount = $('#content section').length;
 	count = sectionCount;
-	console.log(count);
-	var sectionHeight = $('#content section').height();
+	// console.log(count);
+
 	var headerHeight = $('header').height();
-	for ( i = 0; i <= sectionCount; i++) {
-		var sectionPosition = (sectionHeight * i) + 'px';
-		$('section').eq(i).css('top', sectionPosition);
-	}
+	var windowHeight = $(window).height();
+	windowH = windowHeight;
+	var setWindowHeight = windowHeight + 'px';
+	$('#content section').css('height', setWindowHeight);
+	$('#content').css('height', setWindowHeight);
+
+	setTimeout(function() {
+		var sectionHeight = $('#content section').height();
+
+		for ( i = 0; i <= sectionCount; i++) {
+			var sectionPosition = (sectionHeight * i) + 'px';
+			// $('section').eq(i).css('top', sectionPosition);
+
+		}
+	}, 100);
+
 }
 
 function scroll(scroll) {
+
 	var currentScroll = $(document).scrollTop();
 	var currentSection = $('section.active').index();
-	var duration = 200;
 
 	for ( i = 0; i <= count; i++) {
 		var currentSectionOffset = $('section.active').offset();
 		var newcurrentNextSectionOffset = currentSectionOffset.top + duration;
 		var newcurrentPrevSectionOffset = currentSectionOffset.top - duration;
-		console.log(newcurrentPrevSectionOffset);
+		// console.log(newcurrentPrevSectionOffset);
 
 		if ((i == currentSection) && (currentScroll > newcurrentNextSectionOffset) && (scroll == 'down') && (!$('section').hasClass('locked'))) {
-			console.log('jetztNext' + i);
+			console.log('window:' + windowH);
 			var nextSection = i + 2;
+			console.log('jetztNext' + nextSection);
 			var selectedSection = i;
 			$('section').removeClass('active');
 			$("#content > section:nth-child(" + nextSection + ")").addClass('active');
-			doScroll();
+
+			var newScroll = (windowH - duration) + 'px';
+			doScroll(newScroll, scroll);
 		}
 
 		if ((i == currentSection) && (currentScroll < newcurrentPrevSectionOffset) && (scroll == 'up') && (!$('section').hasClass('locked'))) {
@@ -36,21 +61,62 @@ function scroll(scroll) {
 			var prevSection = i;
 			$('section').removeClass('active');
 			$("#content > section:nth-child(" + prevSection + ")").addClass('active');
-			doScroll();
+
+			var newScroll = (windowH - duration) + 'px';
+			doScroll(newScroll, scroll);
 		}
 	}
 }
 
-function doScroll() {
-	console.log('scroll');
+function doScroll(getScroll, scroll) {
+	
 	$('section.active').addClass('locked');
-	setTimeout(function() {
-		$('html, body').animate({
-			scrollTop : $("section.active").offset().top
-		}, 200);
-	}, 100);
-	setTimeout(function() {
-		$('section.active').removeClass('locked');
-	}, 500);
+	$('#content').css('overflow', 'hidden');
 
+	if (scroll == 'down') {
+		
+		$('#content').animate({
+			scrollTop : '+=' + getScroll + ''
+		}, {
+			duration : scrollSpeed,
+			easing : scrollEasingDown,
+			complete : function() {
+				restPosition();
+			}
+		});
+	}
+
+	if (scroll == 'up') {
+		
+		console.log('up' + getScroll);
+		$('#content').animate({
+			scrollTop : '-=' + getScroll + '',
+		}, {
+			duration : scrollSpeed,
+			easing : scrollEasingUp,
+			complete : function() {
+				restPosition();
+			}
+		});
+	}
+
+}
+
+function restPosition() {
+	var getPosition = $('section.active').index();
+	var resetPosition = windowH * getPosition + 'px';
+	$('#content').animate({
+		scrollTop : resetPosition
+	}, {
+		duration : scrollSpeed,
+		easing : scrollEasingDown,
+		complete : function() {
+			$('section.active').removeClass('locked');
+			$('#content').css('overflow', 'auto');
+		}
+	});
+	setTimeout(function(){
+	$('section.active').removeClass('locked');
+	$('#content').css('overflow', 'auto');
+	}, 500);
 }
