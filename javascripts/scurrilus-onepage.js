@@ -26,11 +26,8 @@ function init() {
 
 		for ( i = 0; i <= sectionCount; i++) {
 			var sectionPosition = (sectionHeight * i) + 'px';
-			// $('section').eq(i).css('top', sectionPosition);
-
 		}
 	}, 100);
-
 }
 
 function scroll(scroll) {
@@ -42,12 +39,9 @@ function scroll(scroll) {
 		var currentSectionOffset = $('section.active').offset();
 		var newcurrentNextSectionOffset = currentSectionOffset.top + duration;
 		var newcurrentPrevSectionOffset = currentSectionOffset.top - duration;
-		// console.log(newcurrentPrevSectionOffset);
 
 		if ((i == currentSection) && (currentScroll > newcurrentNextSectionOffset) && (scroll == 'down') && (!$('section').hasClass('locked'))) {
-			console.log('window:' + windowH);
 			var nextSection = i + 2;
-			console.log('jetztNext' + nextSection);
 			var selectedSection = i;
 			$('section').removeClass('active');
 			$("#content > section:nth-child(" + nextSection + ")").addClass('active');
@@ -57,7 +51,6 @@ function scroll(scroll) {
 		}
 
 		if ((i == currentSection) && (currentScroll < newcurrentPrevSectionOffset) && (scroll == 'up') && (!$('section').hasClass('locked'))) {
-			console.log('jetztPrev' + i);
 			var prevSection = i;
 			$('section').removeClass('active');
 			$("#content > section:nth-child(" + prevSection + ")").addClass('active');
@@ -99,7 +92,6 @@ function doScroll(getScroll, scroll) {
 			}
 		});
 	}
-
 }
 
 function restPosition() {
@@ -118,5 +110,5 @@ function restPosition() {
 	setTimeout(function(){
 	$('section.active').removeClass('locked');
 	$('#content').css('overflow', 'auto');
-	}, 500);
+	}, 200);
 }
