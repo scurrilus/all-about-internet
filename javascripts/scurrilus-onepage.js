@@ -23,7 +23,7 @@ function scroll() {
 		if ((i == currentSection) && (currentScroll > newcurrentSectionOffset) ) {
 			console.log('jetzt' + i);
 			$('section').removeClass('active');
-			$('section').next('section').addClass('active');
+			$('section').next('section').addClass('active'); 
 		} 
 	}
 	
