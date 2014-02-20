@@ -310,28 +310,24 @@ function setTochScroll() {
 function mobileMenu() {
 	var menuHeight = $('nav').height() + 'px';
 	if ($('#menuIcon').hasClass('active')) {
-		$('#menuIcon').removeClass('active');
-		$('#menuIcon').animate({
-			top : '0'
-		}, 500);
-		$('nav').animate({
-			top : '-' + menuHeight,
-			complete: function() {
-				
-			}
-		}, 500);
-
-	} else {
 		
 		$('#menuIcon').animate({
+			top : '0'
+		}, 300);
+		$('nav').animate({
+			top : '-' + menuHeight,
+		}, 300);
+		$('#menuIcon').removeClass('active');
+	} 
+
+	if (!$('#menuIcon').hasClass('active')) {
+		$('#menuIcon').addClass('active');
+		$('#menuIcon').animate({
 			top : menuHeight
-		}, 500);
+		}, 300);
 		$('nav').animate({
 			top : '0',
-			complete: function() {
-				$('#menuIcon').addClass('active');
-			}
-		}, 500);
-
+		}, 300);
+		
 	}
 }
