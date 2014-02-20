@@ -29,11 +29,11 @@ header {
 }
 
 h1 {
-
+color: #AD310B;
 }
 
 h2 {
-
+ color: #AD310B
 }
 
 h3 {
@@ -76,6 +76,10 @@ nav ul {
 	clear: both;
 }
 
+nav ul li:hover {
+	color: #999999;
+}
+
 nav ul li.active {
 	background: #666;
 }
@@ -111,15 +115,37 @@ section {
 	box-shadow: 1px 1px 5px #000000;
 }
 
-#bullets ul li.active, nav ul li.active{
+#bullets ul li.active, nav ul li.active {
 	background-color: #AD310B;
-    -webkit-transition: background-color 500ms linear;
-    -moz-transition: background-color 500ms linear;
-    -o-transition: background-color 500ms linear;
-    -ms-transition: background-color 500ms linear;
-    transition: background-color 500ms linear;
+	-webkit-transition: background-color 500ms linear;
+	-moz-transition: background-color 500ms linear;
+	-o-transition: background-color 500ms linear;
+	-ms-transition: background-color 500ms linear;
+	transition: background-color 500ms linear;
 }
 
 #bullets ul li:last-child {
 	display: none;
+}
+
+footer {
+	position: fixed;
+	background: #333333;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	font-size: 11px;
+	z-index: 10;
+	color: #fff;
+	box-shadow: 0px -1px 5px #000;
+}
+
+footer a {
+	color: #fff;
+	text-decoration:none;
+}
+
+footer a:hover {
+	color: #AD310B;
+	text-decoration:none;
 }
