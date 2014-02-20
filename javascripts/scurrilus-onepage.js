@@ -1,33 +1,66 @@
 // Scroll Settings
 //Jquery Easing Plugin Methodes - http://api.jqueryui.com/easings/
-var scrollSpeed = 400;
+var scrollSpeed = 600;
 var scrollEasingDown = 'easeOutBack';
 var scrollEasingUp = 'easeOutBack';
 var duration = 50;
 
-/// END Settings
-
+// Global Settings
 count = null;
 windowH = null;
 
-// Setup Navigation by Section Data-Title
+window.addEventListener("resize", function() {
+	scurrilus_onepagescroll();
+}, true);
+
+// document.getElementById('body').ontouchmove = function(eve) {
+// // scrollCheck();
+// };
+//
+// document.getElementById('body').ontouchend = function(eve) {
+// // setTimeout(scrollCheck, 50);
+// };
 
 setTimeout(function() {
 	for ( i = 0; i <= count; i++) {
-		$('nav ul').append('<li onclick="goToSection(' + i + ')">la</li>');
+		$('nav ul').append('<li></li>');
+		$('#bullets ul').append('<li></li>');
 	}
+
+	$('#content section:first').addClass('active');
+	$('nav ul li:first').addClass('active');
+	$('#bullets ul li:first').addClass('active');
+
 }, 100);
+
+function scurrilus_onepagescroll() {
+	init();
+
+	var lastScrollTop = 0;
+
+	$('#content').scroll(function() {
+		var st = $(this).scrollTop();
+		if (st > lastScrollTop) {
+			scroll('down');
+		} else {
+			scroll('up');
+		}
+		lastScrollTop = st;
+	});
+}
 
 function init() {
 	var sectionCount = $('#content section').length;
-	count = sectionCount;
 	var headerHeight = $('header').height();
 	var windowHeight = $(window).height();
-	windowH = windowHeight;
 	var setWindowHeight = windowHeight + 'px';
+
+	count = sectionCount;
+	windowH = windowHeight;
+
 	$('#content section').css('height', setWindowHeight);
 	$('#content').css('height', setWindowHeight);
-	var navigation = $('<li />');
+
 	setTimeout(function() {
 		var sectionHeight = $('#content section').height();
 		for ( i = 0; i <= sectionCount; i++) {
@@ -36,6 +69,16 @@ function init() {
 			$('nav ul li').eq(i).html(sectionTitle);
 		}
 	}, 100);
+
+	$('nav ul li').click(function(event) {
+		var liClicked = $(this).index();
+		goToSection(liClicked);
+	});
+
+	$('#bullets ul li').click(function(event) {
+		var liClicked = $(this).index();
+		goToSection(liClicked);
+	});
 }
 
 function scroll(scroll) {
@@ -47,21 +90,28 @@ function scroll(scroll) {
 		var currentSectionOffset = $('section.active').offset();
 		var newcurrentNextSectionOffset = currentSectionOffset.top + duration;
 		var newcurrentPrevSectionOffset = currentSectionOffset.top - duration;
+		var nextSection = i + 2;
+		var prevSection = i;
 
 		if ((i == currentSection) && (currentScroll > newcurrentNextSectionOffset) && (scroll == 'down') && (!$('section').hasClass('locked'))) {
-			var nextSection = i + 2;
-			var selectedSection = i;
-			$('section').removeClass('active');
+
+			removeActive();
+
 			$("#content > section:nth-child(" + nextSection + ")").addClass('active');
+			$("nav ul > li:nth-child(" + nextSection + ")").addClass('active');
+			$("#bullets ul > li:nth-child(" + nextSection + ")").addClass('active');
 
 			var newScroll = (windowH - duration) + 'px';
 			doScroll(newScroll, scroll);
 		}
 
 		if ((i == currentSection) && (currentScroll < newcurrentPrevSectionOffset) && (scroll == 'up') && (!$('section').hasClass('locked'))) {
-			var prevSection = i;
-			$('section').removeClass('active');
+
+			removeActive();
+
 			$("#content > section:nth-child(" + prevSection + ")").addClass('active');
+			$("nav ul > li:nth-child(" + prevSection + ")").addClass('active');
+			$("#bullets ul > li:nth-child(" + prevSection + ")").addClass('active');
 
 			var newScroll = (windowH - duration) + 'px';
 			doScroll(newScroll, scroll);
@@ -70,7 +120,6 @@ function scroll(scroll) {
 }
 
 function doScroll(getScroll, scroll) {
-
 	$('section.active').addClass('locked');
 	$('#content').css('overflow', 'hidden');
 
@@ -81,27 +130,25 @@ function doScroll(getScroll, scroll) {
 			duration : scrollSpeed,
 			easing : scrollEasingDown,
 			complete : function() {
-				restPosition();
+				resetPosition();
 			}
 		});
 	}
 
 	if (scroll == 'up') {
-
-		console.log('up' + getScroll);
 		$('#content').animate({
 			scrollTop : '-=' + getScroll + '',
 		}, {
 			duration : scrollSpeed,
 			easing : scrollEasingUp,
 			complete : function() {
-				restPosition();
+				resetPosition();
 			}
 		});
 	}
 }
 
-function restPosition() {
+function resetPosition() {
 	var getPosition = $('section.active').index();
 	var resetPosition = windowH * getPosition + 'px';
 	$('#content').animate({
@@ -110,21 +157,45 @@ function restPosition() {
 		duration : scrollSpeed,
 		easing : scrollEasingDown,
 		complete : function() {
-			$('section.active').removeClass('locked');
-			$('#content').css('overflow', 'auto');
+			removeLocked();
 		}
 	});
-	setTimeout(function() {
-		$('section.active').removeClass('locked');
-		$('#content').css('overflow', 'auto');
-	}, 500);
+}
+
+function removeLocked() {
+	$('#content').css('overflow', 'auto');
+	$('section.active').removeClass('locked');
+}
+
+function removeActive() {
+	$('#content').css('overflow', 'hidden');
+	$('section').removeClass('active');
+	$('nav ul li').removeClass('active');
+	$('#bullets ul li').removeClass('active');
+	
+	$('section').animate({
+			scrollTop : '0'
+		}, {
+			duration : scrollSpeed,
+			easing : scrollEasingDown,
+			complete : function() {
+				
+			}
+		});
 }
 
 function goToSection(selected) {
-	$('#content').css('overflow', 'hidden');
+	removeActive();
+
+	$("#content section:nth-child(" + (selected + 1) + ")").addClass("active");
+
+	$("nav ul li:nth-child(" + (selected + 1) + ")").addClass("active");
+	$("#bullets ul li:nth-child(" + (selected + 1) + ")").addClass("active");
+
 	var jump = windowH * selected + 'px';
-	console.log("s: " + jump);
-	if (!$('section').hasClass('locked')) {
+
+	if (!$('section.active').hasClass('locked')) {
+		$('section.active').addClass('locked');
 		$('#content').animate({
 			scrollTop : jump
 		}, {
