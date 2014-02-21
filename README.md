@@ -6,3 +6,6 @@ Based on jquery.
 
 How to use?
 ------------------
+
+
+# Required resourches #
