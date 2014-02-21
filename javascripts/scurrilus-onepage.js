@@ -21,6 +21,7 @@ setTimeout(function() {
 	$('nav ul li:first').addClass('active');
 	$('#bullets ul li:first').addClass('active');
 	$( "<div id='locked'></div>" ).insertAfter('footer');
+	buttonActions();
 }, 100);
 
 function scurrilus_onepagescroll() {
@@ -115,7 +116,7 @@ function init() {
 		}
 
 		setTochScroll();
-		buttonActions();
+		
 
 	}, 100);
 }
@@ -134,6 +135,14 @@ function buttonActions() {
 	$('#menuIcon').click(function() {
 		mobileMenu();
 	});
+	
+	// $('#menuIcon').mouseenter(function() {
+		// mobileMenu();
+	// });
+// 	
+	// $('#menuIcon').mouseleave(function() {
+		// mobileMenu();
+	// });
 
 	window.addEventListener("resize", function() {
 		scurrilus_onepagescroll();
@@ -316,10 +325,9 @@ function setTochScroll() {
 	}
 }
 
-function mobileMenu() {
+function mobileMenu(state) {
 	var menuHeight = $('nav').height() + 'px';
 	var menuDuration = 300;
-
 	if (!$('#menuIcon').hasClass('open')) {
 		$('nav').css('display', 'block');
 		$('#menuIcon').css('top', '0');
