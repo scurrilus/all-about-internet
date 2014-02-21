@@ -68,12 +68,5 @@ $( document ).ready(function() {
 $(window).load(function() {
 	scurrilus_onepagescroll();
 });
-<<<<<<< HEAD
+
 ```
-=======
-```
-
-</code>
-
-
->>>>>>> 0559a9f5221daa32e326931bc10aff8c8e7f5a0d
