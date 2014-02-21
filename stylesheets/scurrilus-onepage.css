@@ -33,6 +33,10 @@ header {
 
 h1 {
 	color: #aa0000;
+	font-size: 3em;
+	-webkit-margin-before: 0em;
+	-webkit-margin-after: 0.5em;
+}
 }
 
 h2 {
@@ -155,6 +159,7 @@ footer {
 	background: #333333;
 	bottom: 0;
 	width: 100%;
+	height: 40px;
 	text-align: center;
 	font-size: 11px;
 	z-index: 10;
@@ -183,14 +188,42 @@ footer a:hover {
 	display: none;
 }
 
+#locked {
+	height: 30px;
+	width: 20px;
+	height: 40px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 500;
+	background: #309907;
+	 -webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    -o-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+}
+
+.blocked {
+	background: #bb0101 !important;
+	 -webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    -o-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
+}
+
+.touchScroll {
+	padding-bottom: 20%;
+
 /*break768*/
 nav.break768 {
 	width: 100%;
 	top: -100px;
 }
 
-nav.break768 ul li 
-	width: 100%;
+nav.break768 ul li
+width: 100%;
 }
 
 nav.break768 ul li {
@@ -233,13 +266,12 @@ nav.break320 {
 	-webkit-overflow-scrolling: touch;
 	height: 30%;
 	background: #222222;
-	
 }
 
 nav.break320 ul li {
 	float: none;
 	width: 85%;
-} 
+}
 
 section.break320 {
 	padding: 10px;
