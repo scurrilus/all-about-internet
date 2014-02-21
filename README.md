@@ -16,6 +16,7 @@ How to use?
 	<script src="javascripts/jquery.easing.1.3.min.js"></script>
 	<script src="javascripts/jquery.easing.compatibility.js"></script>
 	<script src="javascripts/scurrilus-onepage.js"></script>
+</code>
 
 ### Required HTML structure navigation ###
 
@@ -34,5 +35,7 @@ How to use?
 	<!--CSS styled pagination points.-->
 	</ul>
 </div>
+
+</code>
 
 
