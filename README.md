@@ -28,7 +28,9 @@ The label of the navigation links (HTML tag: nav) will be generated automaticall
 </div>
 <nav>
 	<ul>
-	<!--Navigation <li>data-title</li> buttons autoload by Framework. Use data-title tag from section.-->
+	<!--Navigation <li>data-title</li> buttons autoload by Framework.      
+	    Labels for buttons use data-title tag from section. You only have to edit   
+	    the data-title tag on each section-->
 	</ul>
 </nav>
 <div id="bullets">
