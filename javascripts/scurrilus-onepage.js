@@ -1,9 +1,9 @@
 // Scroll Settings
-//Jquery Easing Plugin Methodes - http://api.jqueryui.com/easings/
+//Jquery Easing Plugin Methodes - http://api.jqueryui.com/easings/ (easeOutBack, ...)
 var scrollSpeed = 600;
 var lockedTime = 100;
-var scrollEasingDown = 'easeOutBack';
-var scrollEasingUp = 'easeOutBack';
+var scrollEasingDown = 'swing';
+var scrollEasingUp = 'swing';
 var duration = 20;
 
 // Global Settings
