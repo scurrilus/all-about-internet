@@ -49,10 +49,12 @@ The data-title is used as the label for navigation.
 
 ```html
 <section data-title='Section 1'>
+	<!--Edit section data-title for display section name on navigation button-->
 	<!--Enter here your section content-->
 </section>
 
 <section data-title='Section 2'>
+	<!--Edit section data-title for display section name on navigation button-->
 	<!--Enter here your section content-->
 </section>
 ```
