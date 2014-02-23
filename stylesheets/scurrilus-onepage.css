@@ -34,7 +34,7 @@ header {
 h1 {
 	color: #aa0000;
 	/*-webkit-margin-before: 0em;
-	-webkit-margin-after: 0.5em;*/
+	 -webkit-margin-after: 0.5em;*/
 }
 }
 
@@ -131,6 +131,8 @@ section {
 	margin-bottom: 10px;
 	cursor: pointer;
 	box-shadow: 1px 1px 5px #000000;
+	-webkit-box-shadow: 1px 1px 5px #000000;
+	-moz-box-shadow: 1px 1px 5px #000000;
 	box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -151,6 +153,59 @@ section {
 
 #bullets ul li:last-child {
 	display: none;
+}
+
+#bullets ul li div.bulletNote {
+	display: none;
+}
+
+#bullets ul li.active div.bulletNote {
+	position: absolute;
+	right: 20px;
+	text-align: left;
+	color: #fff;
+	display: block;
+	width: 200px;
+	padding: 5px 5px 5px 15px;
+	margin-top: -14px;
+	-webkit-border-radius: 10px;
+	opacity: 0;
+	box-shadow: 1px 1px 5px #000000;
+	background: #ffffff;
+	-webkit-animation: bulletNode 2s infinite;
+	-moz-animation: bulletNode 2s infinite;
+	-o-animation: bulletNode 2s infinite;
+	animation: bulletNode 2s infinite;
+	-webkit-animation-iteration-count: 1;
+	-moz-animation-iteration-count: 1;
+	-o-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+	background-color: #aa0000;
+}
+
+@-webkit-keyframes bulletNode {
+0%   { opacity: 0; }
+20%   { opacity: 1; }
+80% { opacity: 1; }
+100% { opacity: 0; }
+}
+@-moz-keyframes bulletNode {
+0%   { opacity: 0; }
+20%   { opacity: 1; }
+80% { opacity: 1; }
+100% { opacity: 0; }
+}
+@-o-keyframes bulletNode {
+0%   { opacity: 0; }
+20%   { opacity: 1; }
+80% { opacity: 1; }
+100% { opacity: 0; }
+}
+@keyframes bulletNode {
+0%   { opacity: 0; }
+20%   { opacity: 1; }
+80% { opacity: 1; }
+100% { opacity: 0; }
 }
 
 footer {
@@ -196,31 +251,30 @@ footer a:hover {
 	left: 0;
 	z-index: 500;
 	background: #309907;
-	 -webkit-transition: background-color 200ms linear;
-    -moz-transition: background-color 200ms linear;
-    -o-transition: background-color 200ms linear;
-    -ms-transition: background-color 200ms linear;
-    transition: background-color 200ms linear;
+	-webkit-transition: background-color 200ms linear;
+	-moz-transition: background-color 200ms linear;
+	-o-transition: background-color 200ms linear;
+	-ms-transition: background-color 200ms linear;
+	transition: background-color 200ms linear;
 }
 
 .blocked {
 	background: #bb0101 !important;
-	 -webkit-transition: background-color 200ms linear;
-    -moz-transition: background-color 200ms linear;
-    -o-transition: background-color 200ms linear;
-    -ms-transition: background-color 200ms linear;
-    transition: background-color 200ms linear;
+	-webkit-transition: background-color 200ms linear;
+	-moz-transition: background-color 200ms linear;
+	-o-transition: background-color 200ms linear;
+	-ms-transition: background-color 200ms linear;
+	transition: background-color 200ms linear;
 }
 
 .touchScroll {
 	padding-bottom: 20%;
-
+}
 /*break768*/
 nav.break768 {
 	width: 100%;
 	top: -100px;
 }
-
 nav.break768 ul li
 width: 100%;
 }

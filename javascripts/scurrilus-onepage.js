@@ -14,7 +14,7 @@ windowW = null;
 setTimeout(function() {
 	for ( i = 0; i <= count; i++) {
 		$('nav ul').append('<li></li>');
-		$('#bullets ul').append('<li></li>');
+		$('#bullets ul').append('<li><div class="bulletNote">hi</div></li>');
 	}
 
 	$('#content section:first').addClass('active');
@@ -113,6 +113,8 @@ function init() {
 			var sectionTitle = $('section').eq(i).data('title');
 			var sectionPosition = (sectionHeight * i) + 'px';
 			$('nav ul li').eq(i).html(sectionTitle);
+			$('#bullets ul li .bulletNote').eq(i).html(sectionTitle);
+			
 		}
 
 		setTochScroll();
