@@ -163,7 +163,7 @@ section {
 	position: absolute;
 	right: 20px;
 	text-align: left;
-	color: #fff;
+	color: #aa0000;
 	display: block;
 	width: 200px;
 	padding: 5px 5px 5px 15px;
@@ -171,7 +171,6 @@ section {
 	-webkit-border-radius: 10px;
 	opacity: 0;
 	box-shadow: 1px 1px 5px #000000;
-	background: #ffffff;
 	-webkit-animation: bulletNode 2s infinite;
 	-moz-animation: bulletNode 2s infinite;
 	-o-animation: bulletNode 2s infinite;
@@ -181,31 +180,84 @@ section {
 	-o-animation-iteration-count: 1;
 	animation-iteration-count: 1;
 	background-color: #aa0000;
+	height: 18px;
+}
+
+#bullets ul li:hover div.bulletNote {
+	opacity: 1;
+	display: block;
+	width: 200px;
+	padding: 5px 5px 5px 15px;
+	margin-top: -14px;
+	-webkit-border-radius: 10px;
+	opacity: 1;
+	box-shadow: 1px 1px 5px #000000;
+	background: #ffffff;
+	position: absolute;
+	right: 20px;
+	text-align: left;
+	color: #ffffff;
+	-webkit-animation: bulletNodeHover 2s infinite;
+	-moz-animation: bulletNodeHover 2s infinite;
+	-o-animation: bulletNodeHover 2s infinite;
+	animation: bulletNodeHover 2s infinite;
+	-webkit-animation-iteration-count: 1;
+	-moz-animation-iteration-count: 1;
+	-o-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+	background-color: #aa0000;
+	overflow: hidden;
+	height: 18px;
 }
 
 @-webkit-keyframes bulletNode {
-0%   { opacity: 0; }
-20%   { opacity: 1; }
-80% { opacity: 1; }
-100% { opacity: 0; }
+0%   {  width: 0; opacity: 0; }
+20%   { color: #aa0000;width: 200px;opacity: 1; }
+30% { color: #ffffff;}
+80% { color: #ffffff; opacity: 1; }
+100% { color: #aa0000; opacity: 0; }
 }
 @-moz-keyframes bulletNode {
-0%   { opacity: 0; }
-20%   { opacity: 1; }
-80% { opacity: 1; }
-100% { opacity: 0; }
+0%   {  width: 0; opacity: 0; }
+20%   { color: #aa0000;width: 200px;opacity: 1; }
+30% { color: #ffffff;}
+80% { color: #ffffff; opacity: 1; }
+100% { color: #aa0000; opacity: 0; }
 }
 @-o-keyframes bulletNode {
-0%   { opacity: 0; }
-20%   { opacity: 1; }
-80% { opacity: 1; }
-100% { opacity: 0; }
+0%   {  width: 0; opacity: 0; }
+20%   { color: #aa0000;width: 200px;opacity: 1; }
+30% { color: #ffffff;}
+80% { color: #ffffff; opacity: 1; }
+100% { color: #aa0000; opacity: 0; }
 }
 @keyframes bulletNode {
-0%   { opacity: 0; }
-20%   { opacity: 1; }
-80% { opacity: 1; }
-100% { opacity: 0; }
+0%   {  width: 0; opacity: 0; }
+20%   { color: #aa0000;width: 200px;opacity: 1; }
+30% { color: #ffffff;}
+80% { color: #ffffff; opacity: 1; }
+100% { color: #aa0000; opacity: 0; }
+}
+
+@-webkit-keyframes bulletNodeHover {
+0%   {  color: #aa0000;width: 0; opacity: 0; }
+20%   { color: #aa0000;width: 200px;opacity: 1; }
+100% { color: #ffffff; opacity: 1; }
+}
+@-moz-keyframes bulletNodeHover {
+0%   {  color: #aa0000;width: 0; opacity: 0; }
+20%   { color: #aa0000;width: 200px;opacity: 1; }
+100% { color: #ffffff; opacity: 1; }
+}
+@-o-keyframes bulletNodeHover {
+0%   {  color: #aa0000;width: 0; opacity: 0; }
+20%   { color: #aa0000;width: 200px;opacity: 1; }
+100% { color: #ffffff; opacity: 1; }
+}
+@keyframes bulletNodeHover {
+0%   {  color: #aa0000;width: 0; opacity: 0; }
+20%   { color: #aa0000;width: 200px;opacity: 1; }
+100% { color: #ffffff; opacity: 1; }
 }
 
 footer {
