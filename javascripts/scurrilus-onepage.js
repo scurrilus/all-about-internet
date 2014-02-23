@@ -312,7 +312,7 @@ function setTochScroll() {
 	var scroll_bar_width = scroll_w1 - scroll_w2;
 	ContentWidth_A = (windowW + scroll_bar_width) + 'px';
 	ContentWidth_B = windowW + 'px';
-	$("#wide_scroll_div_one").remove();
+	$('#wide_scroll_div_one').remove();
 	
 	$('#content').css('width', ContentWidth_A);
 	$('section').removeClass('locked');
