@@ -159,18 +159,28 @@ section {
 	display: none;
 }
 
-#bullets ul li.active div.bulletNote {
-	position: absolute;
-	right: 20px;
-	text-align: left;
-	color: #aa0000;
-	display: block;
+#bullets ul li.active div.bulletNote, #bullets ul li:hover div.bulletNote {
 	width: 200px;
+	height: 18px;
+	right: 20px;
 	padding: 5px 5px 5px 15px;
 	margin-top: -14px;
+	position: absolute;
+	overflow: hidden;
+	background-color: #aa0000;
+	text-align: left;
+	display: block;
 	-webkit-border-radius: 10px;
-	opacity: 0;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 1px 1px 5px #000000;
+	-moz-box-shadow: 1px 1px 5px #000000;
 	box-shadow: 1px 1px 5px #000000;
+}
+
+#bullets ul li.active div.bulletNote {
+	opacity: 0;
+	color: #aa0000;
 	-webkit-animation: bulletNode 2s infinite;
 	-moz-animation: bulletNode 2s infinite;
 	-o-animation: bulletNode 2s infinite;
@@ -179,23 +189,10 @@ section {
 	-moz-animation-iteration-count: 1;
 	-o-animation-iteration-count: 1;
 	animation-iteration-count: 1;
-	background-color: #aa0000;
-	height: 18px;
 }
 
 #bullets ul li:hover div.bulletNote {
 	opacity: 1;
-	display: block;
-	width: 200px;
-	padding: 5px 5px 5px 15px;
-	margin-top: -14px;
-	-webkit-border-radius: 10px;
-	opacity: 1;
-	box-shadow: 1px 1px 5px #000000;
-	background: #ffffff;
-	position: absolute;
-	right: 20px;
-	text-align: left;
 	color: #ffffff;
 	-webkit-animation: bulletNodeHover 2s infinite;
 	-moz-animation: bulletNodeHover 2s infinite;
@@ -205,9 +202,6 @@ section {
 	-moz-animation-iteration-count: 1;
 	-o-animation-iteration-count: 1;
 	animation-iteration-count: 1;
-	background-color: #aa0000;
-	overflow: hidden;
-	height: 18px;
 }
 
 @-webkit-keyframes bulletNode {
