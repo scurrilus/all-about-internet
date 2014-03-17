@@ -2,7 +2,9 @@ SCURRILUS - One Page scroll
 ==================
 
 This is a framework for a one page scroll with snap function.
-Based on jquery. It is a hybrid and use normal and scnap scrolling in one framework. The framework is completely responsive.  
+Based on jquery. It is a hybrid and use normal and scnap scrolling in one framework. The framework is completely responsive.
+
+Here is a demo. http://scurrilus.de/scurrilus-github/scurrilus-onepage-scroll/index.html
 
 How to use?
 ------------------
