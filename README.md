@@ -21,5 +21,5 @@ SCURRILUS Memory (work in progress)
 
 A simple memory game.
 
-Github: [SCURRILUS - Memory](https://github.com/scurrilus/all-about-internet/tree/scurrilus-memory)
+Github: [SCURRILUS - Memory Game](https://github.com/scurrilus/all-about-internet/tree/scurrilus-memory-game)
 
