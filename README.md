@@ -16,3 +16,10 @@ A framework for a one page scroll with snap function. Based on jquery. It is a h
 Github: [SCURRILUS - One Page Scroll](https://github.com/scurrilus/all-about-internet/tree/scurrilus-onepagescroll)     
 Demo: [SCURRILUS - One Page Scroll - Demo](http://scurrilus.de/scurrilus-github/scurrilus-onepage-scroll/index.html)
 
+SCURRILUS Memory (work in progress)
+-------------------------
+
+A simple memory game.
+
+Github: [SCURRILUS - One Page Scroll](https://github.com/scurrilus/all-about-internet/tree/scurrilus-memory)
+
